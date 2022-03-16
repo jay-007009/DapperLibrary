@@ -14,7 +14,7 @@ namespace DapperLibrary.DAL
     public class Members : IMembers
     {
         private readonly Connection connectionData = new Connection();
-        public string ADDMembers(LibraryMembers member)
+        public virtual   string ADDMembers(LibraryMembers member)
         {
             //try
             //{
@@ -66,7 +66,7 @@ namespace DapperLibrary.DAL
 
         }
 
-        public string DeleteMember(int memberId)
+        public virtual string DeleteMember(int memberId)
         {
 
             try
@@ -98,7 +98,7 @@ namespace DapperLibrary.DAL
 
         }
 
-        public LibraryMembers GetMemberById(int memberId)
+        public virtual LibraryMembers GetMemberById(int memberId)
         {
             try
             {
@@ -131,7 +131,7 @@ namespace DapperLibrary.DAL
             }
         }
 
-        public string UpdateMemberDetails(int memberId, LibraryMembers member)
+        public virtual string UpdateMemberDetails(int memberId, LibraryMembers member)
         {
             try
             {
