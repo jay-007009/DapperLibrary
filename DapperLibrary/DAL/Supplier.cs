@@ -21,13 +21,12 @@ namespace DapperLibrary.DAL
 
                 using (IDbConnection connection = new SqlConnection(connectionData.connectionstring()))
                 {
-                    string sQuery = @"Insert into LMS_SUPPLIERSDETAILS(SupplierName,Address,City,Pincode,Contact,Email ) 
-                                        values(@SupplierName,@address,@City,@Pincode,@Contact,@Email)";
+                    string sQuery = @"Insert into LMS_SUPPLIERSDETAILS(SUPPLIER_NAME,ADDRESS,CITY,PINCODE,CONTACT,EMAIL)values(@SupplierName,@address,@City,@Pincode,@Contact,@Email) SELECT @@IDENTITY ";
                     connection.Execute(sQuery, supplier); ;
                 }
                 foreach(var Bookdetails in supplier.bookdetaillist)
                 {
-                    string sQuery = @"Insert into LMS_BOOKDETAILS(BookTitle,Category,Author,Publication,PublishDate, ) 
+                    string sQuery = @"Insert into LMS_BOOKDETAILS(BOOKTITLE,CATEGORY,AUTHOR,PUBLICATION,PUBLISH_DATE,BOOK_EDITION,PRICE,RANK_NUM,DATE_ARRIVAL, ) 
                                         values(@SupplierName,@address,@City,@Pincode,@Contact,@Email)";
                 }
                 return "Supplier insert Successfully";

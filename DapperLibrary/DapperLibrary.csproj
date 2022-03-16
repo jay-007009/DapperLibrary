@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <Folder Include="BAL\" />
+    <Folder Include="UnitTest\" />
   </ItemGroup>
 
 
