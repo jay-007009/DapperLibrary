@@ -14,7 +14,7 @@ namespace DapperLibrary.DAL
     public class Supplier : ISupplier
     {
         private readonly Connection connectionData = new Connection();
-        public string AddSupplier(Suppliers supplier)
+        public virtual string AddSupplier(Suppliers supplier)
         {
             try
             {
@@ -89,7 +89,7 @@ namespace DapperLibrary.DAL
           
         }
 
-        public string DeleteSupplier(int supplierId)
+        public virtual string DeleteSupplier(int supplierId)
         {
             try
             {
@@ -115,7 +115,7 @@ namespace DapperLibrary.DAL
             }
         }
 
-        public Suppliers GetSupplierById(int supplierId)
+        public virtual Suppliers GetSupplierById(int supplierId)
         {
             try
             {
@@ -136,7 +136,7 @@ namespace DapperLibrary.DAL
             }
         }
 
-        public string UpdateSupplierDetails(int supplierId, Suppliers suppliers)
+        public virtual string UpdateSupplierDetails(int supplierId, Suppliers suppliers)
         {
             try
             {

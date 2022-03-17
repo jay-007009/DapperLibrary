@@ -8,8 +8,8 @@ namespace DapperLibrary.DAL.IServices
 {
    public interface ISupplier
     {
-        public string AddSupplier(Suppliers supplier);
-        public Suppliers GetSupplierById(int supplierId);
+        public  string AddSupplier(Suppliers supplier);
+        public  Suppliers GetSupplierById(int supplierId);
         public string UpdateSupplierDetails(int supplierId, Suppliers suppliers);
         public string DeleteSupplier(int supplierId);
     }

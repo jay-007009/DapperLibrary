@@ -8,7 +8,7 @@ namespace DapperLibrary.DAL.IServices
 {
     public interface IMembers
     {
-        public string ADDMembers(LibraryMembers member);
+        public  string ADDMembers(LibraryMembers member);
         public LibraryMembers GetMemberById(int memberId);
         public string UpdateMemberDetails(int memberId, LibraryMembers member);
         public string DeleteMember(int memberId);

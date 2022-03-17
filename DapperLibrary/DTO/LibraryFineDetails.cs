@@ -14,7 +14,7 @@ namespace DapperLibrary.DTO
         
 
       [Required(ErrorMessage = "FineAmount is Required")]
-//[RegularExpression("^\\d{0,4}(\\.\\d{1,2})?$", ErrorMessage = ("FineAmount "))]
+[RegularExpression("^\\d{0,4}(\\.\\d{1,2})?$", ErrorMessage = ("FineAmount "))]
 public string FineAmount { get; set; }
     }
 }
