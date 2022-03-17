@@ -20,7 +20,7 @@ namespace DapperLibrary.Controllers
         {
             _members = members;
         }
-     //   Members _members = new Members();
+  
         // GET: api/<MembersController>
         [HttpGet]
         public IEnumerable<string> Get()

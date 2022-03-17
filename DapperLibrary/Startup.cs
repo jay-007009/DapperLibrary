@@ -28,6 +28,8 @@ namespace DapperLibrary
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IMembers, Members>();
+            services.AddScoped<ISupplier, Supplier>();
+            services.AddScoped<IFineDetails, FineDetails>();
             services.AddControllers();
         }
 

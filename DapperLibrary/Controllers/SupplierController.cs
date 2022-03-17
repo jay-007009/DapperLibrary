@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DapperLibrary.DAL;
+using DapperLibrary.DAL.IServices;
+using DapperLibrary.DTO;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +15,12 @@ namespace DapperLibrary.Controllers
     [ApiController]
     public class SupplierController : ControllerBase
     {
+        private readonly ISupplier _suppliers;
+        public SupplierController(ISupplier supplier)
+        {
+            _suppliers = supplier;
+        }
+
         // GET: api/<SupplierController>
         [HttpGet]
         public IEnumerable<string> Get()
@@ -21,27 +30,32 @@ namespace DapperLibrary.Controllers
 
         // GET api/<SupplierController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public Suppliers Get(int id)
         {
-            return "value";
+            return _suppliers.GetSupplierById(id);
+
         }
 
         // POST api/<SupplierController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] Suppliers supplier)
         {
+            _suppliers.AddSupplier(supplier);
+
         }
 
         // PUT api/<SupplierController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] Suppliers supplier)
         {
+            _suppliers.UpdateSupplierDetails(id, supplier);
         }
 
         // DELETE api/<SupplierController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            _suppliers.DeleteSupplier(id);
         }
     }
 }
