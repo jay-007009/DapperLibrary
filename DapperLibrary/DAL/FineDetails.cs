@@ -71,6 +71,11 @@ namespace DapperLibrary.DAL
             }
         }
 
+        public string DeleteFineDetails(int finedetailId)
+        {
+            throw new NotImplementedException();
+        }
+
         public virtual LibraryFineDetails GetFineDetailsById(int finedetailId)
         {
             throw new NotImplementedException();

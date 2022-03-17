@@ -77,22 +77,22 @@ namespace LibraryMembers.Test
             };
         }
 
-        [Fact]
-        public void GetForMembers()
-        {
-            _service.Setup(options => options.GetMemberById(It.IsAny<int>())).Returns(GetForMembers);
-            var actualresult = _service.Object.GetMemberById(1);
-            Assert.True(actualresult.Count > 0);
-        }
+        //[Fact]
+        //public void GetForMembers()
+        //{
+        //    _service.Setup(options => options.GetMemberById(It.IsAny<int>())).Returns(GetForMembers);
+        //    var actualresult = _service.Object.GetMemberById(1);
+        //    Assert.True(actualresult.Count > 0);
+        //}
 
-        public DapperLibrary.DTO.LibraryMembers GetMemberById(int id)
-        {
-            return new DapperLibrary.DTO.LibraryMembers
-            {
-                MemberId = 203,
+        //public DapperLibrary.DTO.LibraryMembers GetMemberById(int id)
+        //{
+        //    return new DapperLibrary.DTO.LibraryMembers
+        //    {
+        //        MemberId = 203,
 
-            };
-        }
+        //    };
+        //}
 
     }
 }
