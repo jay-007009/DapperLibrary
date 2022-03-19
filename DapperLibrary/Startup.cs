@@ -30,6 +30,7 @@ namespace DapperLibrary
             services.AddScoped<IMembers, Members>();
             services.AddScoped<ISupplier, Supplier>();
             services.AddScoped<IFineDetails, FineDetails>();
+            services.AddScoped<IBookDetails, BookDetailsOperation>();
             services.AddControllers();
         }
 

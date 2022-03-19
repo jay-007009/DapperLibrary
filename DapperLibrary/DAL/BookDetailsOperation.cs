@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using DapperLibrary.ConnectionString;
 using DapperLibrary.DAL.IServices;
+using DapperLibrary.DTO;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
@@ -10,10 +11,10 @@ using System.Threading.Tasks;
 
 namespace DapperLibrary.DAL
 {
-    public class BookDetails : IBookDetails
+    public class BookDetailsOperation : IBookDetails
     {
         private readonly Connection connectionData = new Connection();
-        public virtual string AddBookDetails(DapperLibrary.DTO.BookDetails bookdetail)
+        public virtual string AddBookDetails(BookDetails bookdetail)
         {
             try
             {
@@ -36,7 +37,7 @@ namespace DapperLibrary.DAL
                              Price = bookdetail.BookPrice,
                              RankNumber=bookdetail.BookRank_Number,
                              DateArrival=bookdetail.BookDate_Arrival,
-                             
+                             SupplierId=bookdetail.SupplierId
                          },
                         commandType: CommandType.StoredProcedure
                     );
@@ -79,7 +80,7 @@ namespace DapperLibrary.DAL
             }
         }
 
-        public virtual DapperLibrary.DTO.BookDetails GetBookById(int bookId)
+        public virtual BookDetails GetBookById(int bookId)
         {
             try
             {
@@ -89,7 +90,7 @@ namespace DapperLibrary.DAL
 
                     string readquery = "GetBookDetails";
                     connection.Open();
-                    return connection.Query<DapperLibrary.DTO.BookDetails>(readquery, new { BookCode = bookId }, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                    return connection.Query<BookDetails>(readquery, new { BookCode = bookId }, commandType: CommandType.StoredProcedure).FirstOrDefault();
 
                 }
             }
@@ -123,6 +124,7 @@ namespace DapperLibrary.DAL
                              Price = bookdetail.BookPrice,
                              RankNumber = bookdetail.BookRank_Number,
                              DateArrival = bookdetail.BookDate_Arrival,
+                             SupplierId=bookdetail.SupplierId,
                              Bookcode = bookId
                          },
                         commandType: CommandType.StoredProcedure

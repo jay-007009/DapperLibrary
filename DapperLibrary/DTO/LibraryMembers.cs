@@ -26,7 +26,7 @@ namespace DapperLibrary.DTO
 
         [Required(ErrorMessage = "Pincode is Required")]
         [RegularExpression("^[1-9][0-9]{5}$", ErrorMessage = ("Only 6 digits are allowed"))]
-        // [Range(1, 6)]
+      
         public int MemberPincode { get; set; }
 
 
