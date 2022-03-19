@@ -1,7 +1,6 @@
 ﻿using Dapper;
 using DapperLibrary.ConnectionString;
 using DapperLibrary.DAL.IServices;
-using DapperLibrary.DTO;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
@@ -11,15 +10,15 @@ using System.Threading.Tasks;
 
 namespace DapperLibrary.DAL
 {
-    public class FineDetails : IFineDetails
+    public class BookDetails : IBookDetails
     {
         private readonly Connection connectionData = new Connection();
-        public virtual string AddFineDetails(LibraryFineDetails finedetails)
+        public virtual string AddBookDetails(DapperLibrary.DTO.BookDetails bookdetail)
         {
             try
             {
 
-                var Sp = "AddFineRange";
+                var Sp = "AddBookDetails";
                 using (IDbConnection connection = new SqlConnection(connectionData.connectionstring()))
                 {
                     connection.Open();
@@ -28,15 +27,22 @@ namespace DapperLibrary.DAL
                         Sp,
                          new
                          {
-                             FineRange = finedetails.FineRange,
-                             FineAmount = finedetails.FineAmount
-                            
+                             BookTitle = bookdetail.BookTitle,
+                             Category = bookdetail.BookCategory,
+                             Author = bookdetail.BookAuthor,
+                             Publication= bookdetail.BookPublication,
+                             Publishdate = bookdetail.BookPublish_Date,
+                             BookEdition = bookdetail.BookEdition,
+                             Price = bookdetail.BookPrice,
+                             RankNumber=bookdetail.BookRank_Number,
+                             DateArrival=bookdetail.BookDate_Arrival,
+                             
                          },
                         commandType: CommandType.StoredProcedure
                     );
                     connection.Close();
                 }
-                return "FineDetails insert Successfully";
+                return "BookDetails insert Successfully";
             }
             catch (Exception ex)
             {
@@ -45,23 +51,25 @@ namespace DapperLibrary.DAL
             }
         }
 
-        public virtual string DeleteFineDetails(string finedetailId)
+       
+
+        public virtual string DeleteBook(int bookId)
         {
             try
             {
                 using (IDbConnection connection = new SqlConnection(connectionData.connectionstring()))
                 {
-                   
+                  
 
                     var parameter = new DynamicParameters();
-                    parameter.Add("@FineRange", finedetailId);
+                    parameter.Add("@BookId", bookId);
 
                     connection.Open();
-                    connection.Execute("DeleteFineDetails", parameter, commandType: CommandType.StoredProcedure);
+                    connection.Execute("DeleteBookdetails", parameter, commandType: CommandType.StoredProcedure);
                     connection.Close();
 
                 }
-                return "Fine Deleted Successfully";
+                return "BookDetails Deleted Successfully";
 
             }
             catch (Exception)
@@ -71,21 +79,19 @@ namespace DapperLibrary.DAL
             }
         }
 
-      
-
-        public virtual LibraryFineDetails GetFineDetailsById(string finedetailId)
+        public virtual DapperLibrary.DTO.BookDetails GetBookById(int bookId)
         {
             try
             {
                 using (IDbConnection connection = new SqlConnection(connectionData.connectionstring()))
                 {
-                    
-                    string readquery = "GetFineDetails";
+                  
+
+                    string readquery = "GetBookDetails";
                     connection.Open();
-                    return connection.Query<LibraryFineDetails>(readquery, new { FineRange = finedetailId }, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                    return connection.Query<DapperLibrary.DTO.BookDetails>(readquery, new { BookCode = bookId }, commandType: CommandType.StoredProcedure).FirstOrDefault();
 
                 }
-               
             }
             catch (Exception ex)
             {
@@ -94,25 +100,30 @@ namespace DapperLibrary.DAL
             }
         }
 
-        public virtual string UpdateFineDetails(string finedetailId, LibraryFineDetails fineDetails)
+        public virtual string UpdateBookDetails(int bookId, DapperLibrary.DTO.BookDetails bookdetail)
         {
             try
             {
-                var Sp = "UpdateFineDetails";
+                var Sp = "UpdateBookDetails";
                 using (IDbConnection connection = new SqlConnection(connectionData.connectionstring()))
                 {
-
-
+                  
                     connection.Open();
                     connection.Execute
                     (
                         Sp,
                          new
                          {
-                             FineAmount = fineDetails.FineAmount,
-                             FineRange = finedetailId,
-                      
-                           
+                             BookTitle = bookdetail.BookTitle,
+                             Category = bookdetail.BookCategory,
+                             Author = bookdetail.BookAuthor,
+                             Publication = bookdetail.BookPublication,
+                             Publishdate = bookdetail.BookPublish_Date,
+                             BookEdition = bookdetail.BookEdition,
+                             Price = bookdetail.BookPrice,
+                             RankNumber = bookdetail.BookRank_Number,
+                             DateArrival = bookdetail.BookDate_Arrival,
+                             Bookcode = bookId
                          },
                         commandType: CommandType.StoredProcedure
                     );
@@ -121,7 +132,7 @@ namespace DapperLibrary.DAL
 
                 }
 
-                return "Update FineDetails Successfully";
+                return "Update BookDetails Successfully";
 
 
 

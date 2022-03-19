@@ -9,8 +9,8 @@ namespace DapperLibrary.DAL.IServices
    public interface IFineDetails
     {
         public string AddFineDetails(LibraryFineDetails finedetails);
-        public LibraryFineDetails GetFineDetailsById(int finedetailId);
-        public string UpdateFineDetails(int finedetailId, LibraryFineDetails fineDetails);
-        public string DeleteFineDetails(int finedetailId);
+        public LibraryFineDetails GetFineDetailsById(string finedetailId);
+        public string UpdateFineDetails(string finedetailId, LibraryFineDetails fineDetails);
+        public string DeleteFineDetails(string finedetailId);
     }
 }
