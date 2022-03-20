@@ -1,34 +1,32 @@
-using DapperLibrary.DAL;
-using Moq;
 using System;
 using Xunit;
+using DapperLibrary.DAL;
+using Moq;
 using DapperLibrary.DTO;
-
-namespace LibraryMembers.Test
+namespace LibraryMember.Test
 {
-    public class UnitTest1
+    public class Members
     {
-        public Mock<Members> _service = new Mock<Members>();
+        public Mock<DapperLibrary.DAL.Members> _service = new Mock<DapperLibrary.DAL.Members>();
 
 
         //Insert Members Unit Test
         [Fact]
         public void AddMembers()
         {
-            _service.Setup(options => options.ADDMembers(It.IsAny<DapperLibrary.DTO.LibraryMembers>()));
+            _service.Setup(options => options.ADDMembers(It.IsAny<LibraryMembers>()));
             var actualresult = _service.Object.ADDMembers(InsertMember());
-           // Assert.True(true, actualresult);
+            Assert.True(true, actualresult);
         }
 
-        public DapperLibrary.DTO.LibraryMembers InsertMember()
+        public LibraryMembers InsertMember()
         {
-            return new DapperLibrary.DTO.LibraryMembers
+            return new LibraryMembers
             {
-                MemberId=101,
                 MemberName = "Ramesh",
                 MemberAddress = "Navsarihighschool",
                 MemberCity = "Navsari",
-                MemberPincode = 396445,
+                MemberPincode = "396445",
                 MemberDate_Register = "2019/06/12",
                 MemberDate_Expire = "2022/08/05",
                 Membership_Status = "Permanant",
@@ -50,18 +48,18 @@ namespace LibraryMembers.Test
         {
             return new DapperLibrary.DTO.LibraryMembers
             {
-                MemberId=1,
+                MemberId = 1,
                 MemberName = "Ramesh",
                 MemberAddress = "Navsarihighschool",
                 MemberCity = "Navsari",
-                MemberPincode = 396445,
+                MemberPincode = "396445",
                 MemberDate_Register = "2019/06/12",
                 MemberDate_Expire = "2022/08/05",
                 Membership_Status = "Permanant",
             };
         }
 
-
+        //Delete Member UnitTest
         [Fact]
         public void DeleteForMembers()
         {
@@ -79,22 +77,22 @@ namespace LibraryMembers.Test
             };
         }
 
-        //[Fact]
-        //public void GetForMembers()
-        //{
-        //    _service.Setup(options => options.GetMemberById(It.IsAny<int>())).Returns(GetForMembers);
-        //    var actualresult = _service.Object.GetMemberById(1);
-        //    Assert.True(actualresult.Count > 0);
-        //}
+        //GetById UnitTest 
+        [Fact]
+        public void GetForMembers()
+        {
+            _service.Setup(options => options.GetMemberById(It.IsAny<int>())).Returns(GetMemberId());
+            var actualresult = _service.Object.GetMemberById(1);
+            Assert.True(actualresult.MemberId > 0);
+        }
 
-        //public DapperLibrary.DTO.LibraryMembers GetMemberById(int id)
-        //{
-        //    return new DapperLibrary.DTO.LibraryMembers
-        //    {
-        //        MemberId = 203,
+        public DapperLibrary.DTO.LibraryMembers GetMemberId()
+        {
+            return new DapperLibrary.DTO.LibraryMembers
+            {
+                MemberId = 203,
 
-        //    };
-        //}
-
+            };
+        }
     }
 }

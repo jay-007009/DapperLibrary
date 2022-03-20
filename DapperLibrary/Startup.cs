@@ -1,5 +1,5 @@
-using DapperLibrary.DAL;
-using DapperLibrary.DAL.IServices;
+using DapperLibrary.BAL;
+using DapperLibrary.BAL.IServices;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,10 +28,10 @@ namespace DapperLibrary
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IMembers, Members>();
-            services.AddScoped<ISupplier, Supplier>();
-            services.AddScoped<IFineDetails, FineDetails>();
-            services.AddScoped<IBookDetails, BookDetailsOperation>();
-            services.AddScoped<IBookIssue, BookIssueOperation>();
+            //services.AddScoped<ISupplier, Supplier>();
+            //services.AddScoped<IFineDetails, FineDetails>();
+            //services.AddScoped<IBookDetails, BookDetailsOperation>();
+            //services.AddScoped<IBookIssue, BookIssueOperation>();
             services.AddControllers();
         }
 

@@ -15,8 +15,8 @@ namespace DapperLibrary.Controllers
     [ApiController]
     public class MembersController : ControllerBase
     {
-        private readonly IMembers _members;
-        public MembersController(IMembers members)
+        private readonly DapperLibrary.BAL.IServices.IMembers _members;
+        public MembersController(DapperLibrary.BAL.IServices.IMembers members)
         {
             _members = members;
         }

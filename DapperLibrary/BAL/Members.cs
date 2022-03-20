@@ -8,53 +8,33 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
-
-namespace DapperLibrary.DAL
+using Validations;
+namespace DapperLibrary.BAL
 {
     public class Members : IMembers
     {
         private readonly Connection connectionData = new Connection();
         public virtual string ADDMembers(LibraryMembers member)
         {
-            //try
-            //{
-
-            //    using (IDbConnection connection = new SqlConnection(connectionData.connectionstring()))
-            //    {
-            //        string sQuery = @"Insert into LMS_MEMBERS(MEMBER_NAME,ADDRESS,CITY,PINCODE,DATE_REGISTER,DATE_EXPIRE,MEMBERSHIP_STATUS)  values(@MemberName,@address,@City,@Pincode,@DateRegister,@DateExpire,@MembershipStatus) select Scope_Identity";
-            //        connection.Execute(sQuery, member);
-            //    }
-
-            //    return "Member insert Successfully";
-            //}
-            //catch (Exception e)
-            //{
-            //    return e.Message;
-            //}
+            DapperLibrary.DAL.Members members = new DapperLibrary.DAL.Members();
 
             try
             {
+                Name name_Validation = new Name();
+                Pincode pincodeValidation = new Pincode();
+                Date joiningDateValidation = new Date();
 
-                var Sp = "AddMembers";
-                using (IDbConnection connection = new SqlConnection(connectionData.connectionstring()))
+                var nameisvalid = name_Validation.IsNameIsValid(member.MemberName);
+                  var IspincodeValid = pincodeValidation.PincodeIsValid(member.MemberPincode);
+                var IsdatejoiningValid = joiningDateValidation.IsDateIsValid(member.MemberDate_Register);
+
+                if (nameisvalid && IsdatejoiningValid && IspincodeValid)
                 {
-                    connection.Open();
-                    connection.Execute
-                    (
-                        Sp,
-                         new
-                         {
-                             MemberName = member.MemberName,
-                             MemberAddress = member.MemberAddress,
-                             MemberCity = member.MemberCity,
-                             MemberPincode = member.MemberPincode,
-                             Date_Register = member.MemberDate_Register,
-                             Date_Expire = member.MemberDate_Expire,
-                             Membership_Status = member.Membership_Status
-                         },
-                        commandType: CommandType.StoredProcedure
-                    );
-                    connection.Close();
+                    members.ADDMembers(member);
+                }
+                else
+                {
+                    return "Enter Valid Validations";
                 }
                 return "Member insert Successfully";
             }
@@ -73,10 +53,7 @@ namespace DapperLibrary.DAL
             {
                 using (IDbConnection connection = new SqlConnection(connectionData.connectionstring()))
                 {
-                    //    string sQuery = @"Delete from LMS_MEMBERS where MEMBER_ID = @MemberId";
-                    //    var parameter = new DynamicParameters();
-                    //    parameter.Add("MemberId", memberId);
-                    //    var members = connection.Query<LibraryMembers>(sQuery, parameter).FirstOrDefault();
+                   
 
                     var parameter = new DynamicParameters();
                     parameter.Add("@MemberId", memberId);
@@ -166,7 +143,7 @@ namespace DapperLibrary.DAL
                              DateRegister = member.MemberDate_Register,
                              DateExpire = member.MemberDate_Expire,
                              Membershipstatus = member.Membership_Status,
-                             MemberId=memberId
+                             MemberId = memberId
                          },
                         commandType: CommandType.StoredProcedure
                     );
