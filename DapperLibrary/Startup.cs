@@ -27,7 +27,7 @@ namespace DapperLibrary
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<IMembers, Members>();
+            services.AddTransient<IMembers, Member>();
             //services.AddScoped<ISupplier, Supplier>();
             //services.AddScoped<IFineDetails, FineDetails>();
             //services.AddScoped<IBookDetails, BookDetailsOperation>();

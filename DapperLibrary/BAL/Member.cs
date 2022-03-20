@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using Validations;
 namespace DapperLibrary.BAL
 {
-    public class Members : IMembers
+    public class Member : IMembers
     {
         private readonly Connection connectionData = new Connection();
         public virtual string ADDMembers(LibraryMembers member)
