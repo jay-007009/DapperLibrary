@@ -44,41 +44,7 @@ namespace DapperLibrary.DAL
 
                     return "Supplier Insert Successfully";
                 }
-                //    foreach (var Bookdetails in supplier.bookdetaillist)
-                //    {
-                //        var Sp2 = "AddBookDetails";
-                //        using (IDbConnection connection2 = new SqlConnection(connectionData.connectionstring()))
-                //        {
-                //            //var supplierid = new { SupplierId = supplierId };
-                //            //Suppliers.supplierId = Convert.ToInt32(supplierid);
-
-                //            connection2.Open();
-                //            connection2.Execute
-                //            (
-                //                Sp2,
-                //                 new
-                //                 {
-                //                     BookTitle = Bookdetails.BookTitle,
-                //                     Category = Bookdetails.BookCategory,
-                //                     Author = Bookdetails.BookAuthor,
-                //                     Publication = Bookdetails.BookPublication,
-                //                     Publishdate = Bookdetails.BookPublish_Date,
-                //                     BookEdition = Bookdetails.BookEdition,
-                //                     Price = Bookdetails.BookPrice,
-                //                     RankNumber = Bookdetails.BookRank_Number,
-                //                     DateArrival = Bookdetails.BookDate_Arrival,
-                //                 // SupplierId = supplier.supplierid
-
-                //             },
-                //                commandType: CommandType.StoredProcedure
-
-                //            );
-                //            connection.Close();
-                //        }
-                //    }
-                //    return "supplier insert successfully";
-
-                //}
+             
            
             }
             catch (Exception e)
@@ -167,7 +133,7 @@ namespace DapperLibrary.DAL
 
                 }
 
-                return "Update SupplierDetails Successful";
+                return "Update SupplierDetails Successfully";
 
 
 

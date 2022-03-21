@@ -1,4 +1,5 @@
-﻿using DapperLibrary.DAL;
+﻿using DapperLibrary.BLL.IServices;
+using DapperLibrary.DAL;
 using DapperLibrary.DAL.IServices;
 using DapperLibrary.DTO;
 using Microsoft.AspNetCore.Mvc;
@@ -15,8 +16,8 @@ namespace DapperLibrary.Controllers
     [ApiController]
     public class SupplierController : ControllerBase
     {
-        private readonly ISupplier _suppliers;
-        public SupplierController(ISupplier supplier)
+        private readonly ISupplierBAL _suppliers;
+        public SupplierController(ISupplierBAL supplier)
         {
             _suppliers = supplier;
         }

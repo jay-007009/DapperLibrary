@@ -14,7 +14,7 @@ namespace LibraryMember.Test
 
         //Insert Suppliers Unit Test
         [Fact]
-        public void AddMembers()
+        public void AddSuppliers()
         {
             _service.Setup(options => options.AddSupplier(It.IsAny<Suppliers>()));
             var actualresult = _service.Object.AddSupplier(InsertSupplier());
@@ -28,7 +28,7 @@ namespace LibraryMember.Test
                 SupplierName = "Ramesh",
                 SupplierAddress = "Navsarihighschool",
                 SupplierCity = "Navsari",
-                SupplierPincode = 396445,
+                SupplierPincode = "396445",
                 SupplierContact = "4561237890",
                 SupplierEmail = "jayr002@gmail.com"
               
@@ -54,7 +54,7 @@ namespace LibraryMember.Test
                 SupplierName = "Ramesh",
                 SupplierAddress = "Navsarihighschool",
                 SupplierCity = "Navsari",
-                SupplierPincode = 396445,
+                SupplierPincode = "396445",
                 SupplierContact = "4561237890",
                 SupplierEmail = "jayr002@gmail.com"
             };
@@ -91,7 +91,7 @@ namespace LibraryMember.Test
         {
             return new DapperLibrary.DTO.Suppliers
             {
-                SupplierId = 203,
+                SupplierId = 203
 
             };
         }

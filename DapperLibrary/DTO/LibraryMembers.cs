@@ -29,12 +29,11 @@ namespace DapperLibrary.DTO
       
         public string MemberPincode { get; set; }
 
-
-        //[DateValidate]
+ 
         [Required(ErrorMessage = "MemberDate_Register is Required")]
         [RegularExpression("[0-9]{4}/[0-9]{2}/[0-9]{2}", ErrorMessage = ("date in format"))]
         public string MemberDate_Register { get; set; }
-        // [DateValidate]
+        
 
         [Required(ErrorMessage = "MemberDate_Expire is Required")]
         [RegularExpression("[0-9]{4}/[0-9]{2}/[0-9]{2}", ErrorMessage = ("date in format"))]
@@ -45,7 +44,7 @@ namespace DapperLibrary.DTO
         [RegularExpression("^[a-zA-Z]+$", ErrorMessage = ("Only Alphabets are Allowed."))]
         public string Membership_Status { get; set; }
 
-       // List<BookIssue> bookIssueslist = new List<BookIssue>();
+     
 
 
        

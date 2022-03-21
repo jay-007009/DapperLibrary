@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace DapperLibrary.BAL.IServices
+namespace DapperLibrary.BLL
 {
-    public interface IMembers
+    public interface IMembersBAL
     {
         public  string ADDMembers(LibraryMembers member);
         public LibraryMembers GetMemberById(int memberId);

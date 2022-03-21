@@ -12,7 +12,7 @@ namespace DapperLibrary.DTO
         public int BookId { get; set; }
 
         [Required(ErrorMessage = "BookTitle is Required")]
-       // [RegularExpression("^[a-zA-Z]+$", ErrorMessage = ("Only Alphabets are Allowed."))]
+    
         public string BookTitle { get; set; }
 
         [Required(ErrorMessage = "BookCategory is Required")]
@@ -33,7 +33,7 @@ namespace DapperLibrary.DTO
 
         [Required(ErrorMessage = "BookEdition is Required")]
         [RegularExpression("^[1-9][0-9]{0}$", ErrorMessage = ("Only 1 digits are allowed"))]
-        public int BookEdition { get; set; }
+        public string BookEdition { get; set; }
 
         [Required(ErrorMessage = "BookPrice is Required")]
         [RegularExpression("^\\d{0,4}(\\.\\d{1,2})?$", ErrorMessage = ("BookPrice is Decimal "))]
@@ -50,12 +50,7 @@ namespace DapperLibrary.DTO
       
         public int SupplierId { get; set; }
 
-     //  public List<Suppliers> suppliersList = new List<Suppliers>();
-
-     //public BookDetails()
-     //   {
-     //       suppliersList = new List<Suppliers>();
-     //   }
+     
 
 
     }

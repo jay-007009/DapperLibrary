@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace DapperLibrary.BAL.IServices
+namespace DapperLibrary.BLL.IServices
 {
-   public interface IBookIssue
+   public interface IBookIssueBAL
     {
         public string AddBookIssue(BookIssue bookissue);
         public BookIssue GetBookIssueById(int bookissueId);

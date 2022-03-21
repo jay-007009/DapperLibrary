@@ -3,12 +3,15 @@ using Xunit;
 using DapperLibrary.DAL;
 using Moq;
 using DapperLibrary.DTO;
+using DapperLibrary.BAL;
+
 namespace LibraryMember.Test
 {
     public class Members
     {
+       
         public Mock<DapperLibrary.DAL.Members> _service = new Mock<DapperLibrary.DAL.Members>();
-
+      
 
         //Insert Members Unit Test
         [Fact]
@@ -23,7 +26,7 @@ namespace LibraryMember.Test
         {
             return new LibraryMembers
             {
-                MemberName = "Ramesh",
+                MemberName = "Ramesh002222",
                 MemberAddress = "Navsarihighschool",
                 MemberCity = "Navsari",
                 MemberPincode = "396445",
@@ -90,7 +93,7 @@ namespace LibraryMember.Test
         {
             return new DapperLibrary.DTO.LibraryMembers
             {
-                MemberId = 203,
+                MemberId = 203
 
             };
         }

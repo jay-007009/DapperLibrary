@@ -1,4 +1,5 @@
-﻿using DapperLibrary.DAL.IServices;
+﻿using DapperLibrary.BLL.IServices;
+using DapperLibrary.DAL.IServices;
 using DapperLibrary.DTO;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -14,8 +15,8 @@ namespace DapperLibrary.Controllers
     [ApiController]
     public class BookIssueController : ControllerBase
     {
-        private readonly IBookIssue _bookissuedetails;
-        public BookIssueController(IBookIssue bookissuedetail)
+        private readonly IBookIssueBAL _bookissuedetails;
+        public BookIssueController(IBookIssueBAL bookissuedetail)
         {
             _bookissuedetails = bookissuedetail;
         }

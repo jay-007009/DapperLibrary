@@ -1,4 +1,5 @@
-﻿using DapperLibrary.DAL.IServices;
+﻿using DapperLibrary.BLL.IServices;
+using DapperLibrary.DAL.IServices;
 using DapperLibrary.DTO;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -14,8 +15,8 @@ namespace DapperLibrary.Controllers
     [ApiController]
     public class FineDetailsController : ControllerBase
     {
-        private readonly IFineDetails _finedetails;
-        public FineDetailsController(IFineDetails finedetail)
+        private readonly IFineDetailsBAL _finedetails;
+        public FineDetailsController(IFineDetailsBAL finedetail)
         {
             _finedetails = finedetail;
         }

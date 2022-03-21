@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
-//using Validations;
+
 
 namespace DapperLibrary.DTO
 {
@@ -25,7 +25,7 @@ namespace DapperLibrary.DTO
 
         [Required(ErrorMessage = "SupplierPincode is Required")]
         [RegularExpression("^[1-9][0-9]{5}$", ErrorMessage = ("Only 6 digits are allowed"))]
-        public int SupplierPincode { get; set; }
+        public string SupplierPincode { get; set; }
 
         [Required(ErrorMessage = "SupplierContact is Required")]
         [RegularExpression("^[1-9][0-9]{9}$", ErrorMessage = ("Only 10 digits are allowed"))]
@@ -37,11 +37,6 @@ namespace DapperLibrary.DTO
         [RegularExpression(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$", ErrorMessage = ("Email in format"))]
         public string SupplierEmail { get; set; }
 
-       public List<BookDetails> bookdetaillist { get; set; }
-
-        public Suppliers()
-        {
-            bookdetaillist = new List<BookDetails>();
-        }
+       
     }
 }

@@ -36,7 +36,7 @@ namespace DapperLibrary.DAL
                     );
                     connection.Close();
                 }
-                return "FineDetails insert Successfully";
+                return "FineDetails Insert Successfully";
             }
             catch (Exception ex)
             {

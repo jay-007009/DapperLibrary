@@ -43,7 +43,7 @@ namespace DapperLibrary.DAL
                     );
                     connection.Close();
                 }
-                return "BookDetails insert Successfully";
+                return "BookDetails Insert Successfully";
             }
             catch (Exception ex)
             {

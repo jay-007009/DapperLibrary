@@ -16,6 +16,8 @@ namespace DapperLibrary.DAL
         private readonly Connection connectionData = new Connection();
         public virtual string ADDMembers(LibraryMembers member)
         {
+            //using query 
+
             //try
             //{
 
@@ -56,7 +58,7 @@ namespace DapperLibrary.DAL
                     );
                     connection.Close();
                 }
-                return "Member insert Successfully";
+                return "Member Insert Successfully";
             }
             catch (Exception ex)
             {
@@ -73,6 +75,8 @@ namespace DapperLibrary.DAL
             {
                 using (IDbConnection connection = new SqlConnection(connectionData.connectionstring()))
                 {
+                    //using query
+
                     //    string sQuery = @"Delete from LMS_MEMBERS where MEMBER_ID = @MemberId";
                     //    var parameter = new DynamicParameters();
                     //    parameter.Add("MemberId", memberId);
@@ -104,6 +108,8 @@ namespace DapperLibrary.DAL
             {
                 using (IDbConnection connection = new SqlConnection(connectionData.connectionstring()))
                 {
+                    //using query
+
                     ////string sQuery = @"Select MEMBER_ID, MEMBER_NAME,ADDRESS,CITY,PINCODE,DATE_REGISTER,DATE_EXPIRE,MEMBERSHIP_STATUS from LMS_MEMBERS where MEMBER_ID = @MemberId";
                     //DynamicParameters parameter = new DynamicParameters();
                     ////parameter.Add("MemberId", memberId);
@@ -138,6 +144,8 @@ namespace DapperLibrary.DAL
                 var Sp = "UpdateMembers";
                 using (IDbConnection connection = new SqlConnection(connectionData.connectionstring()))
                 {
+                    //using query
+
                     //string sQuery = @"Update LMS_MEMBERS set MEMBERNAME=@MemberName,ADDRESS=@Address,CITY=@city,PINCODE=@Pincode,DATE_REGISTER=@DateRegister,DATE_EXPIRE=@DateExpire,MEMBERSHIP_STATUS=@Membershipstatus"+
                     //                 "where MEMBERID = @MemberId";
 
@@ -175,7 +183,7 @@ namespace DapperLibrary.DAL
 
                 }
 
-                return "Update Member Successful";
+                return "Update Member Successfully";
 
 
 

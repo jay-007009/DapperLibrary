@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace DapperLibrary.BAL.IServices
+namespace DapperLibrary.BLL.IServices
 {
-   public interface ISupplier
+   public interface ISupplierBAL
     {
         public  string AddSupplier(Suppliers supplier);
         public  Suppliers GetSupplierById(int supplierId);

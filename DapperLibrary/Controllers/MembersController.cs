@@ -1,4 +1,5 @@
-﻿using DapperLibrary.DAL;
+﻿using DapperLibrary.BLL;
+using DapperLibrary.DAL;
 using DapperLibrary.DAL.IServices;
 using DapperLibrary.DTO;
 using Microsoft.AspNetCore.Mvc;
@@ -15,8 +16,8 @@ namespace DapperLibrary.Controllers
     [ApiController]
     public class MembersController : ControllerBase
     {
-        private readonly DapperLibrary.BAL.IServices.IMembers _members;
-        public MembersController(DapperLibrary.BAL.IServices.IMembers members)
+        private readonly IMembersBAL _members;
+        public MembersController(IMembersBAL members)
         {
             _members = members;
         }

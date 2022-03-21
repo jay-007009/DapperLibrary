@@ -27,16 +27,7 @@ namespace DapperLibrary.DTO
        
      
 
-      //  public List<LibraryFineDetails> FineList { get; set; }
-       // public List<LibraryMembers> MembersList { get; set; }
-       // public List<BookDetails> BookDetailsList { get; set; }
-
-        //public BookIssue()
-        //{
-        //    MembersList = new List<LibraryMembers>();
-        //    BookDetailsList = new List<BookDetails>();
-        //    FineList = new List<LibraryFineDetails>();
-        //}
+    
 
     }
 }

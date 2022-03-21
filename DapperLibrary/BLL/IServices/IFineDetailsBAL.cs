@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace DapperLibrary.BAL.IServices
+namespace DapperLibrary.BLL.IServices
 {
-   public interface IFineDetails
+   public interface IFineDetailsBAL
     {
         public string AddFineDetails(LibraryFineDetails finedetails);
         public LibraryFineDetails GetFineDetailsById(string finedetailId);

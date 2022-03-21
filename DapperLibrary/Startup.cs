@@ -1,5 +1,8 @@
 using DapperLibrary.BAL;
-using DapperLibrary.BAL.IServices;
+using DapperLibrary.BLL;
+using DapperLibrary.BLL.IServices;
+using DapperLibrary.DAL;
+using DapperLibrary.DAL.IServices;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,11 +30,20 @@ namespace DapperLibrary
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<IMembers, Member>();
-            //services.AddScoped<ISupplier, Supplier>();
-            //services.AddScoped<IFineDetails, FineDetails>();
-            //services.AddScoped<IBookDetails, BookDetailsOperation>();
-            //services.AddScoped<IBookIssue, BookIssueOperation>();
+            services.AddScoped<IMembers, Members>();
+            services.AddScoped<IMembersBAL,MemberBAL>();
+
+            services.AddScoped<ISupplier, Supplier>();
+            services.AddScoped<ISupplierBAL, SupplierBAL>();
+
+            services.AddScoped<IFineDetails, FineDetails>();
+            services.AddScoped<IFineDetailsBAL, FineDetailsBAL>();
+
+            services.AddScoped<IBookDetails, BookDetailsOperation>();
+            services.AddScoped<IBookDetailsBAL, BookDetailsOperationBAL>();
+
+            services.AddScoped<IBookIssue, BookIssueOperation>();
+            services.AddScoped<IBookIssueBAL, BookIssueOperationBAL>();
             services.AddControllers();
         }
 
