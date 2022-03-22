@@ -7,8 +7,8 @@ namespace Validations
 {
     public class Email
     {
-        
-            public bool IsEmailIsValid(string email)
+
+        public bool IsEmailIsValid(string email)
         {
 
             Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");

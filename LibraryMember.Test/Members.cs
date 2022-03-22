@@ -3,7 +3,7 @@ using Xunit;
 using DapperLibrary.DAL;
 using Moq;
 using DapperLibrary.DTO;
-using DapperLibrary.BAL;
+using DapperLibrary.BLL;
 
 namespace LibraryMember.Test
 {

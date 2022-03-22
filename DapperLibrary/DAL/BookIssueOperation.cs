@@ -15,18 +15,16 @@ namespace DapperLibrary.DAL
     {
         private readonly Connection connectionData = new Connection();
         public virtual string AddBookIssue(BookIssue bookissue)
-        {
-          
+        {          
             try
             {
-
-                var Sp = "AddBookIssue";
+                var storeProcedure = "AddBookIssue";
                 using (IDbConnection connection = new SqlConnection(connectionData.connectionstring()))
                 {
                     connection.Open();
                     connection.Execute
                     (
-                        Sp,
+                        storeProcedure,
                          new
                          {
                              MemberId = bookissue.MemberId,
@@ -44,8 +42,7 @@ namespace DapperLibrary.DAL
             }
             catch (Exception ex)
             {
-
-                return ex.Message;
+                throw ex;
             }
         }
 

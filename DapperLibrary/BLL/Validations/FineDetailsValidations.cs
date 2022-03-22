@@ -30,7 +30,7 @@ namespace DapperLibrary.BLL.Validations
         {
             DapperLibrary.DAL.FineDetails finedetails = new DapperLibrary.DAL.FineDetails();
             var finedetailsvalidate = FineDetailsValidations.Isvalidatefinedetails(finedetail);
-            if (finedetailsvalidate)
+            if (finedetailsvalidate==false)
             {
                 finedetails.AddFineDetails(finedetail);
             }
@@ -45,7 +45,7 @@ namespace DapperLibrary.BLL.Validations
         {
             DapperLibrary.DAL.FineDetails finedetails = new DapperLibrary.DAL.FineDetails();
             var finedetailsvalidate = FineDetailsValidations.Isvalidatefinedetails(finedetail);
-            if (finedetailsvalidate)
+            if (finedetailsvalidate==false)
             {
                 finedetails.UpdateFineDetails(finedetailId, finedetail);
             }

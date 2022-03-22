@@ -36,7 +36,7 @@ namespace DapperLibrary.BLL.Validations
         {
             DapperLibrary.DAL.BookDetailsOperation bookdetail = new DapperLibrary.DAL.BookDetailsOperation();
             var bookdetailsvalidate = BookDetailsValidations.Isvalidatebookdetails(bookdetails);
-            if (bookdetailsvalidate)
+            if (bookdetailsvalidate==false)
             {
                 bookdetail.AddBookDetails(bookdetails);
             }
@@ -51,7 +51,7 @@ namespace DapperLibrary.BLL.Validations
         {
             DapperLibrary.DAL.BookDetailsOperation bookdetail = new DapperLibrary.DAL.BookDetailsOperation();
             var bookdetailsvalidate = BookDetailsValidations.Isvalidatebookdetails(bookdetails);
-            if (bookdetailsvalidate)
+            if (bookdetailsvalidate==false)
             {
                 bookdetail.UpdateBookDetails(bookdetailId, bookdetails);
             }

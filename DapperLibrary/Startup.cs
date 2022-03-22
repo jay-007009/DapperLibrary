@@ -1,4 +1,3 @@
-using DapperLibrary.BAL;
 using DapperLibrary.BLL;
 using DapperLibrary.BLL.IServices;
 using DapperLibrary.DAL;

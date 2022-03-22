@@ -11,7 +11,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace DapperLibrary.BAL
+namespace DapperLibrary.BLL
 {
     public class FineDetailsBAL : IFineDetailsBAL
     {
